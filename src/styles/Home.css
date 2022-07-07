@@ -1,0 +1,146 @@
+.main {
+  text-align: center;
+  background-color: var(--main-pink);
+  height: 420vh;
+  width: 100%;
+}
+.mainImg-container {
+  border: 1px solid yellow;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+.mainImg {
+  border: 1px solid saddlebrown;
+  width: 70vw;
+  margin: auto;
+}
+.absolute {
+  position: absolute;
+}
+.front {
+  z-index: 2;
+}
+.turtleChip {
+  left: 15vw;
+  top: 100vh;
+  width: 30vw;
+  transform: rotate(-30deg);
+}
+.btsCoffee {
+  right: 10vw;
+  top: 140vh;
+  width: 20vw;
+  transform: rotate(30deg);
+}
+.gummy {
+  left: 25vw;
+  top: 200vh;
+  width: 20vw;
+  transform: rotate(30deg);
+}
+.cornChip {
+  right: 10vw;
+  top: 250vh;
+  width: 20vw;
+  transform: rotate(30deg);
+}
+.shrimpChip {
+  left: 5vw;
+  top: 300vh;
+  width: 10vw;
+  transform: rotate(-30deg);
+  z-index: 2;
+}
+.almond {
+  right: 20vw;
+  top: 350vh;
+  width: 20vw;
+  transform: rotate(30deg);
+}
+.pepero {
+  left: -2vw;
+  top: 200vh;
+  width: 20vw;
+  transform: rotate(30deg);
+}
+
+.chac1 {
+  right: 35vw;
+  top: 180vh;
+  width: 10vw;
+  transform: rotate(-40deg);
+}
+.chac2 {
+  left: 10vw;
+  top: 180vh;
+  width: 10vw;
+  transform: rotate(30deg);
+}
+.chac3 {
+  right: 40vw;
+  top: 250vh;
+  width: 10vw;
+  transform: rotate(-30deg);
+}
+.chac4 {
+  right: 7vw;
+  top: 210vh;
+  width: 5vw;
+  transform: rotate(30deg);
+}
+.chac5 {
+  right: 0;
+  top: 300vh;
+  width: 20vw;
+  /* transform: rotate(-40deg); */
+}
+.chac6 {
+  left: 25vw;
+  top: 320vh;
+  width: 15vw;
+  transform: rotate(30deg);
+}
+.mask1 {
+  right: 25vw;
+  top: 130vh;
+  width: 10vw;
+  transform: rotate(-30deg);
+}
+.mask2 {
+  left: 25vw;
+  top: 260vh;
+  width: 15vw;
+  transform: rotate(10deg);
+}
+.mask3 {
+  left: 2vw;
+  top: 150vh;
+  width: 10vw;
+  transform: rotate(30deg);
+}
+
+.features {
+  /* height: 200vh; */
+  padding: 10vh 13vw;
+}
+
+.feature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10vh 0;
+}
+.feature-text {
+  width: 30vw;
+  color: var(--main-gray);
+}
+.feature img {
+  height: 30vw;
+  width: 30vw;
+  object-fit: cover;
+  border-radius: 50%;
+}

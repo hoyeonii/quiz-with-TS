@@ -1,5 +1,5 @@
 import React from "react";
-import { AnswerObject } from "../App";
+import { AnswerObject } from "../pages/Quiz";
 import { Wrapper, ButtonWrapper } from "./QuestionCard.styles";
 
 type Props = {

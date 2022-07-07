@@ -1,0 +1,35 @@
+.nav-container {
+  position: absolute;
+  width: 96vw;
+  padding: 0 1vw;
+  z-index: 99;
+}
+.nav {
+  display: flex;
+  position: sticky;
+  top: 0;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+  padding: 10px 3vw;
+  color: white;
+  box-sizing: border-box;
+}
+
+.nav-left {
+  font-size: 2rem;
+  cursor: pointer;
+
+  /* border: 1px solid blue; */
+}
+.nav-right {
+  font-size: 1.2rem;
+  /* border: 1px solid yellow; */
+  align-items: center;
+}
+.nav-right a {
+  /* border: 1px solid green; */
+  margin: auto 1rem;
+  vertical-align: middle;
+  line-height: 40px;
+  cursor: pointer;
+}
