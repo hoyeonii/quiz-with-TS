@@ -1,6 +1,8 @@
 :root {
   --main-pink: #f597a0;
-  --main-gray: #888888;
+  --main-gray: hwb(0 53% 47%);
+  --main-gray-light: hwb(0 91% 9%);
+  --main-purple: #8f63c7ce;
 }
 
 h3 {

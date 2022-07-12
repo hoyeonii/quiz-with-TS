@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import main from "../images/main.png";
 import turtleChip from "../images/turtleChip.png";
@@ -20,8 +20,88 @@ import mask3 from "../images/mask3.png";
 import feature1 from "../images/feature1.png";
 import feature2 from "../images/feature2.jpg";
 import feature3 from "../images/feature3.png";
+import review_bg from "../images/review_bg.png";
+import review_highlight from "../images/review_highlight.png";
+import order1 from "../images/order1.png";
+import order2 from "../images/order2.jpg";
+import order3 from "../images/order3.png";
+import order4 from "../images/order4.png";
+import order5 from "../images/order5.jpg";
+import order6 from "../images/order6.png";
+import order7 from "../images/order7.jpg";
 import "../styles/Home.css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 function Home() {
+  const [orderDetail, setOrderDetail] = useState("detail");
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    pauseOnHover: true,
+    cssEase: "linear",
+  };
+
+  const reviews: { user: string; review: string }[] = [
+    {
+      user: "Emel**",
+      review:
+        "Super box, bought for a birthday. It was complete and offered a lot of items, some classic, some more original but all perfect for those who want to taste a piece of Korea. I recommend!",
+    },
+    {
+      user: "Joha**",
+      review:
+        "Super quality and very nice extras. Expectations exceeded. A good mix. My sister was thrilled. I immediately ordered the next box for me :)",
+    },
+    {
+      user: "Chri**",
+      review:
+        "Found the box just great. There were some snacks that I hadn't had for ages, and also some that I didn't know at all. Was really a great mix of different things.",
+    },
+    {
+      user: "paul**",
+      review:
+        "I highly recommend! I thought there was going to have less food but when I opened the box there were plenty. I am very happy with my purchase!",
+    },
+    {
+      user: "Veer**",
+      review:
+        "I ordered this box for a friend and she loved it! The box was well-filled with lots of different items:) I would definitely recommend this item!",
+    },
+    {
+      user: "Hanz**",
+      review:
+        "My friend absolutely LOVE this box of yummy snacks so thank you very very much!! 🥰💖🥰💖",
+    },
+    {
+      user: "Lorn**",
+      review:
+        "Bought as a Christmas present for a friend who has let me know she thoroughly enjoyed all the items from the box! Thanks again",
+    },
+  ];
+  const orderImg = [order1, order2, order3, order4, order5, order6, order7];
+
+  const navLeftBtn = document.querySelectorAll(".order-right-detail-btn");
+  const navLeftIndicator = document.getElementById(
+    "#order-right-detail-btn-indicator"
+  );
+
+  navLeftBtn.forEach((btn) =>
+    btn.addEventListener("click", (e: Event) => showIndicator(e))
+  );
+
+  const showIndicator = (e: any) => {
+    navLeftIndicator!.style.left = e.currentTarget.offsetLeft + "px";
+    navLeftIndicator!.style.top = e.currentTarget.offsetTop + "px";
+    navLeftIndicator!.style.width = e.currentTarget.offsetWidth + "px";
+  };
+
   return (
     <div>
       <section className="main">
@@ -94,6 +174,91 @@ function Home() {
             </p>
           </div>
           <img src={feature3} alt="feature" />
+        </div>
+      </section>
+      <section className="review">
+        <img src={review_bg} alt="review_bg" className="review_bg" />
+        <div className="review_container">
+          <h6>Reviews</h6>
+          <img src={review_highlight} alt="review_highlight" />
+          <div>
+            <Slider {...settings}>
+              <div>
+                <p>
+                  Super box, bought for a birthday. It was complete and offered
+                  a lot of items, some classic, some more original but all
+                  perfect for those who want to taste a piece of Korea. I
+                  recommend!
+                </p>
+                <span>Emeline</span>
+              </div>
+              {reviews.map((el) => (
+                <div>
+                  <p>{el.review}</p>
+                  <span>{el.user}</span>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </div>
+      </section>
+      <section className="order">
+        <div>
+          <Slider {...settings}>
+            {orderImg.map((el) => (
+              <div>
+                <img src={el} alt="el" />
+              </div>
+            ))}
+          </Slider>
+        </div>
+        <div className="order-right">
+          <h1>Gwaja Gift Box</h1>
+          <span>
+            Want to experience Korea but not sure what to try out?
+            <br />
+            Need a Gift for your K-pop, K-drama obsessed friend/family?
+          </span>
+          <div className="order-right-price">
+            <h3>€27.30</h3>
+            <button>Get Gwaja Box</button>
+          </div>
+          <div className="order-right-detail">
+            <div>
+              <div id="order-right-detail-btn-indicator">r</div>
+              <button
+                className="order-right-detail-btn"
+                onClick={() => {
+                  setOrderDetail("detail");
+                }}
+              >
+                Detail
+              </button>
+              <button
+                className="order-right-detail-btn"
+                onClick={() => {
+                  setOrderDetail("addOn");
+                }}
+              >
+                Add-On
+              </button>
+              <button
+                className="order-right-detail-btn"
+                onClick={() => {
+                  setOrderDetail("shipping");
+                }}
+              >
+                Shipping
+              </button>
+            </div>
+            {orderDetail === "detail" ? (
+              <p>Detail</p>
+            ) : orderDetail === "addOn" ? (
+              <p>Add-On</p>
+            ) : (
+              <p>shipping</p>
+            )}
+          </div>
         </div>
       </section>
     </div>

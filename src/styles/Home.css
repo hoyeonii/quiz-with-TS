@@ -144,3 +144,167 @@
   object-fit: cover;
   border-radius: 50%;
 }
+
+/* review */
+
+.review {
+  position: relative;
+  background-color: var(--main-purple);
+  /* height: 80vh; */
+}
+
+.review_bg {
+  width: 100%;
+}
+
+.review_container {
+  position: absolute;
+  background-color: var(--main-gray-light);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 70%;
+  width: 70%;
+  text-align: center;
+}
+.review_container > h6 {
+  font-size: 2.5rem;
+  padding-top: 3%;
+  margin: 0;
+}
+.review_container > img {
+  height: 12px;
+  margin-bottom: 2%;
+}
+
+.review_container > div {
+  position: relative;
+  /* border: 1px blue solid; */
+  margin: auto;
+  width: 70%;
+  height: 60%;
+  align-items: center;
+}
+.review_container .slick-prev {
+  left: -50px;
+}
+.review_container .slick-next {
+  right: -50px;
+}
+
+.slick-slider {
+  position: absolute;
+  /* border: 1px pink solid; */
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 3% 0;
+  font-size: 1.5rem;
+}
+.slick-slider p {
+  margin: 0 0 7%;
+}
+
+/* order */
+.order {
+  display: flex;
+  position: relative;
+}
+.order .slick-slider {
+  position: absolute;
+  width: 40%;
+  margin-left: 5%;
+}
+.order .slick-slider .slick-dots li.slick-active button:before {
+  width: 0px;
+  line-height: 0px;
+  content: "-";
+  font-size: 3rem;
+  font-weight: 600;
+  transition: 1s;
+  color: var(--main-pink);
+}
+.order > div:first-child {
+  width: 50%;
+  height: 100vh;
+  border: red 1px solid;
+}
+.order-right {
+  width: 50%;
+  height: 100vh;
+  border: blue 1px solid;
+  padding: 5% 0;
+}
+
+.order img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 3rem;
+}
+
+.order-right h1 {
+  font-size: 4rem;
+  margin: 0 0 6%;
+  color: var(--main-purple);
+}
+
+.order-right span {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  color: var(--main-gray);
+}
+.order-right-price {
+  display: flex;
+  padding: 3% 0;
+  align-items: center;
+}
+.order-right-price > * {
+  font-size: 2rem;
+  color: var(--main-purple);
+}
+.order-right-price > button {
+  margin: 0 5%;
+  padding: 2% 2.5%;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: white;
+  border: 5px solid var(--main-gray-light);
+  border-radius: 50px;
+  cursor: pointer;
+}
+.order-right-price > button:hover {
+  color: white;
+  background-color: var(--main-pink);
+  border: 5px solid transparent;
+}
+
+.order-right-detail > div {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+  padding: 5px;
+  border: 5px solid var(--main-gray-light);
+  border-radius: 50px;
+  width: 93%;
+}
+.order-right-detail > div > button {
+  padding: 2.5%;
+  width: 33%;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--main-purple);
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+#order-right-detail-btn-indicator {
+  position: absolute;
+  width: 33%;
+  height: 60px;
+  /* border: 5px solid saddlebrown; */
+  background-color: aquamarine;
+  border-radius: 50px;
+  z-index: -1;
+  transition: 1s;
+}
