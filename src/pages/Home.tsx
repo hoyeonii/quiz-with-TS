@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useRef, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import main from "../images/main.png";
 import turtleChip from "../images/turtleChip.png";
@@ -29,6 +29,8 @@ import order4 from "../images/order4.png";
 import order5 from "../images/order5.jpg";
 import order6 from "../images/order6.png";
 import order7 from "../images/order7.jpg";
+import gallery2 from "../images/gallery2.png";
+import gallery4 from "../images/gallery4.png";
 import "../styles/Home.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -36,6 +38,13 @@ import "slick-carousel/slick/slick-theme.css";
 
 function Home() {
   const [orderDetail, setOrderDetail] = useState("detail");
+  const featuresRef = useRef<null | HTMLDivElement>(null);
+  const handleScroll = () => {
+    featuresRef?.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   const settings = {
     dots: true,
     infinite: true,
@@ -87,16 +96,36 @@ function Home() {
   ];
   const orderImg = [order1, order2, order3, order4, order5, order6, order7];
 
-  const navLeftBtn = document.querySelectorAll(".order-right-detail-btn");
+  // const navLeftBtn = document.querySelectorAll(".order-right-detail-btn");
+  // const navLeftIndicator = document.getElementById(
+  //   "#order-right-detail-btn-indicator "
+  // );
+
+  // navLeftBtn.forEach((btn) =>
+  //   btn.addEventListener("click", (e: Event) => showIndicator(e))
+  // );
+
+  // const showIndicator = (e: any) => {
+  //   navLeftIndicator!.style.left = e.currentTarget.offsetLeft + "px";
+  //   navLeftIndicator!.style.top = e.currentTarget.offsetTop + "px";
+  //   navLeftIndicator!.style.width = e.currentTarget.offsetWidth + "px";
+  //   e.currentTarget.style.color = "white";
+  // };
+
+  const navLeftBtn = document.querySelectorAll<HTMLElement>(
+    ".order-right-detail-btn"
+  );
   const navLeftIndicator = document.getElementById(
-    "#order-right-detail-btn-indicator"
+    "order-right-detail-btn-indicator"
   );
 
   navLeftBtn.forEach((btn) =>
-    btn.addEventListener("click", (e: Event) => showIndicator(e))
+    btn.addEventListener("click", (e) => showIndicator(e))
   );
 
   const showIndicator = (e: any) => {
+    navLeftBtn.forEach((btn) => (btn.style.color = "var(--main-purple)"));
+    e.currentTarget.style.color = "white";
     navLeftIndicator!.style.left = e.currentTarget.offsetLeft + "px";
     navLeftIndicator!.style.top = e.currentTarget.offsetTop + "px";
     navLeftIndicator!.style.width = e.currentTarget.offsetWidth + "px";
@@ -107,6 +136,9 @@ function Home() {
       <section className="main">
         <div className="mainImg-container">
           <img src={main} alt="main" className="mainImg" />
+          <button className="main-scrollBtn" onClick={handleScroll}>
+            Scroll Down
+          </button>
         </div>
         <img
           src={turtleChip}
@@ -143,7 +175,7 @@ function Home() {
         <img src={mask2} alt="mask2" className="absolute  mask2" />
         <img src={mask3} alt="mask3" className="absolute front mask3" />
       </section>
-      <section className="features">
+      <section className="features" ref={featuresRef}>
         <div className="feature">
           <div className="feature-text">
             <h3>01</h3>
@@ -225,12 +257,13 @@ function Home() {
           </div>
           <div className="order-right-detail">
             <div>
-              <div id="order-right-detail-btn-indicator">r</div>
+              <div id="order-right-detail-btn-indicator"></div>
               <button
-                className="order-right-detail-btn"
+                className="order-right-detail-btn detail"
                 onClick={() => {
                   setOrderDetail("detail");
                 }}
+                style={{ color: "white" }}
               >
                 Detail
               </button>
@@ -261,6 +294,36 @@ function Home() {
           </div>
         </div>
       </section>
+      <section className="gallery">
+        <div className="galleryL">
+          <div className="gallery1">
+            <img src={order4} alt="gallery" />
+          </div>
+          <div className="gallery4 scaleAdjust">
+            <img src={gallery4} alt="gallery" />
+          </div>
+        </div>
+        <div className="galleryR">
+          <div className="galleryR-upper">
+            <div className="gallery2 scaleAdjust">
+              <img src={gallery2} alt="gallery" />
+            </div>
+            <div className="gallery3 scaleAdjust">
+              <img src={turtleChip} alt="gallery" />
+              <h3>
+                Popular Snacks
+                <br /> in Korea
+              </h3>
+            </div>
+          </div>
+          <div className="gallery5">
+            <div />
+            <div />
+            <img src={order2} alt="gallery" />
+          </div>
+        </div>
+      </section>
+      <footer></footer>
     </div>
   );
 }
