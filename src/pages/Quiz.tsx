@@ -62,7 +62,7 @@ function Quiz() {
   return (
     <>
       <GlobalStyle />
-      <Wrapper>
+      <Wrapper className="page quiz">
         <h1>REACT QUIZ</h1>
         {gameOver || userAnswers.length === 10 ? (
           <button className="start" onClick={startTrivia}>

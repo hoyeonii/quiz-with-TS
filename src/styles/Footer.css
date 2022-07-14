@@ -1,0 +1,23 @@
+.footer {
+  background-color: var(--main-pink);
+  border-top: 1px solid white;
+  color: #ffffff;
+  padding: 2% 5%;
+  display: flex;
+  justify-content: space-between;
+  /* box-sizing: border-box; */
+}
+.footerR {
+  display: flex;
+  flex-direction: row;
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.footerR a {
+  white-space: nowrap;
+  /* box-sizing: border-box; */
+  color: white;
+  text-decoration: none;
+}

@@ -22,7 +22,7 @@
 }
 .main-scrollBtn {
   position: absolute;
-  bottom: 7%;
+  bottom: 3%;
   left: 50%;
   transform: translateX(-50%);
   background-color: transparent;

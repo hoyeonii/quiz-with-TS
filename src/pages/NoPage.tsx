@@ -1,7 +1,7 @@
 import React from "react";
 
 function NoPage() {
-  return <div>NoPage</div>;
+  return <div className="page nopage">NoPage</div>;
 }
 
 export default NoPage;

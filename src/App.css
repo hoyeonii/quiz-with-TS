@@ -4,6 +4,7 @@
   --main-gray: hwb(0 53% 47%);
   --main-gray-light: hwb(0 91% 9%);
   --main-purple: #8f63c7ce;
+  --main-ivory: #fff7efce;
 }
 
 h3 {
@@ -13,4 +14,40 @@ h3 {
 
 p {
   font-size: 1.5rem;
+}
+
+.page {
+  padding-top: 63px;
+}
+
+.header {
+  background-color: var(--main-pink-light);
+  color: white;
+  text-align: center;
+  height: 25vh;
+  align-items: center;
+}
+.header h3 {
+  /* -webkit-text-stroke: 1px var(--main-pink); */
+  line-height: 25vh;
+  text-shadow: 5px 5px 0 var(--main-pink), -1px -1px 0 var(--main-pink),
+    1px -1px 0 var(--main-pink), -1px 1px 0 var(--main-pink),
+    1px 1px 0 var(--main-pink);
+}
+
+.content {
+  background-color: var(--main-ivory);
+  padding: 5%;
+  min-height: 55vh;
+}
+.content h4 {
+  font-size: 1.7rem;
+  padding: 1% 0;
+  margin: 0 3%;
+  border-bottom: 2px solid var(--main-pink);
+}
+.content p {
+  padding: 0 3%;
+  font-size: 1rem;
+  margin-bottom: 5%;
 }

@@ -1,18 +1,21 @@
 .nav-container {
-  position: absolute;
-  width: 96vw;
-  padding: 0 1vw;
+  position: fixed;
+
+  width: 100%;
+  /* padding: 0 2%; */
   z-index: 99;
+  background-color: var(--main-pink);
 }
 .nav {
   display: flex;
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   justify-content: space-between;
   border-bottom: 1px solid white;
   padding: 10px 3vw;
   color: white;
   box-sizing: border-box;
+  width: 100%;
 }
 
 .nav-left {
@@ -26,10 +29,12 @@
   /* border: 1px solid yellow; */
   align-items: center;
 }
-.nav-right a {
+.nav a {
   /* border: 1px solid green; */
   margin: auto 1rem;
   vertical-align: middle;
   line-height: 40px;
-  cursor: pointer;
+  /* cursor: pointer; */
+  color: white;
+  text-decoration: none;
 }
