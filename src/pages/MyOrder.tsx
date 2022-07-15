@@ -34,7 +34,7 @@ function MyOrder() {
     tracking: string;
     createDate: Date;
   }
-  const checkId = async (e: any) => {
+  const checkId = async () => {
     var docRef = doc(db, "order", id);
     const docSnap = await getDoc(docRef);
 
@@ -67,7 +67,11 @@ function MyOrder() {
       {verified ? (
         <div>
           {name}
-          {tracking}
+          {tracking ? (
+            <span>Your box is on its way! Tracking:{tracking}</span>
+          ) : (
+            <span>Your box is being prepared!</span>
+          )}
         </div>
       ) : (
         <>

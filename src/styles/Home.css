@@ -219,16 +219,16 @@
 }
 
 /* order */
-.order {
+.product {
   display: flex;
   position: relative;
 }
-.order .slick-slider {
+.product .slick-slider {
   position: absolute;
   width: 40%;
   margin-left: 5%;
 }
-.order .slick-slider .slick-dots li.slick-active button:before {
+.product .slick-slider .slick-dots li.slick-active button:before {
   width: 0px;
   line-height: 0px;
   content: "-";
@@ -237,45 +237,45 @@
   transition: 1s;
   color: var(--main-pink);
 }
-.order > div:first-child {
+.product > div:first-child {
   width: 50%;
   height: 100vh;
   /* border: red 1px solid; */
 }
-.order-right {
+.product-right {
   width: 50%;
   height: 100vh;
   /* border: blue 1px solid; */
   padding: 5% 0;
 }
 
-.order img {
+.product img {
   object-fit: cover;
   width: 100%;
   border-radius: 3rem;
 }
 
-.order-right h1 {
+.product-right h1 {
   font-size: 4rem;
   margin: 0 0 6%;
   color: var(--main-purple);
 }
 
-.order-right span {
+.product-right span {
   font-size: 1.3rem;
   line-height: 2rem;
   color: var(--main-gray);
 }
-.order-right-price {
+.product-right-price {
   display: flex;
   padding: 3% 0;
   align-items: center;
 }
-.order-right-price > * {
+.product-right-price > * {
   font-size: 2rem;
   color: var(--main-purple);
 }
-.order-right-price > button {
+.product-right-price > button {
   margin: 0 5%;
   padding: 2% 2.5%;
   font-size: 1.5rem;
@@ -285,13 +285,13 @@
   border-radius: 50px;
   cursor: pointer;
 }
-.order-right-price > button:hover {
+.product-right-price > button:hover {
   color: white;
   background-color: var(--main-pink);
   border: 5px solid transparent;
 }
 
-.order-right-detail > div {
+.product-right-detail > div {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -301,7 +301,7 @@
   border-radius: 50px;
   width: 93%;
 }
-.order-right-detail-btn {
+.product-right-detail-btn {
   padding: 2.5%;
   width: 33%;
   font-size: 1.5rem;
@@ -312,7 +312,7 @@
   background-color: transparent;
 }
 
-#order-right-detail-btn-indicator {
+#product-right-detail-btn-indicator {
   position: absolute;
   width: 33%;
   height: 90%;

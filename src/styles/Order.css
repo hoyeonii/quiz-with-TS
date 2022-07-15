@@ -1,0 +1,24 @@
+/*  */
+.order-product {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.order-product > * {
+  width: 30%;
+  margin: 1% auto;
+}
+.order-product img {
+  width: 40%;
+}
+
+.order-input {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid salmon;
+}
+
+.order form {
+  display: flex;
+  flex-direction: column;
+}

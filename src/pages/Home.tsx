@@ -113,10 +113,10 @@ function Home() {
   // };
 
   const navLeftBtn = document.querySelectorAll<HTMLElement>(
-    ".order-right-detail-btn"
+    ".product-right-detail-btn"
   );
   const navLeftIndicator = document.getElementById(
-    "order-right-detail-btn-indicator"
+    "product-right-detail-btn-indicator"
   );
 
   navLeftBtn.forEach((btn) =>
@@ -234,7 +234,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="order">
+      <section className="product">
         <div>
           <Slider {...settings}>
             {orderImg.map((el) => (
@@ -244,22 +244,22 @@ function Home() {
             ))}
           </Slider>
         </div>
-        <div className="order-right">
+        <div className="product-right">
           <h1>Gwaja Gift Box</h1>
           <span>
             Want to experience Korea but not sure what to try out?
             <br />
             Need a Gift for your K-pop, K-drama obsessed friend/family?
           </span>
-          <div className="order-right-price">
+          <div className="product-right-price">
             <h3>€27.30</h3>
             <button>Get Gwaja Box</button>
           </div>
-          <div className="order-right-detail">
+          <div className="product-right-detail">
             <div>
-              <div id="order-right-detail-btn-indicator"></div>
+              <div id="product-right-detail-btn-indicator"></div>
               <button
-                className="order-right-detail-btn detail"
+                className="product-right-detail-btn detail"
                 onClick={() => {
                   setOrderDetail("detail");
                 }}
@@ -268,7 +268,7 @@ function Home() {
                 Detail
               </button>
               <button
-                className="order-right-detail-btn"
+                className="product-right-detail-btn"
                 onClick={() => {
                   setOrderDetail("addOn");
                 }}
@@ -276,7 +276,7 @@ function Home() {
                 Add-On
               </button>
               <button
-                className="order-right-detail-btn"
+                className="product-right-detail-btn"
                 onClick={() => {
                   setOrderDetail("shipping");
                 }}
