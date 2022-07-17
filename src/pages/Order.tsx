@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, createRef } from "react";
 import {
   ref,
   uploadBytes,
@@ -19,18 +19,21 @@ import {
 import { storage, db } from "../firebase";
 import "../styles/Order.css";
 import order1 from "../images/order1.png";
+import "../types/index.d.ts";
+import CheckOut from "./CheckOut";
 
 function Order() {
   const [euList, setEuList] = useState<listType[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<string>("Gwaja Box");
+  const [price, setPrice] = useState<number>(29.5);
+  const [scriptLoaded, setScriptLoaded] = useState<boolean>(false);
+  const [submitted, setSubmitted] = useState<boolean>(false);
+
   type listType = {
     flag: string;
     name: string;
   };
-  type priceType = {
-    product: string;
-    price: number;
-  };
+
   const productList = [
     { product: "Gwaja Box", price: 29.5 },
     { product: "Gwaja Box with K-merch", price: 33.5 },
@@ -49,9 +52,12 @@ function Order() {
 
   const placeOrder = (e: any) => {
     e.preventDefault();
+    setSubmitted(true);
     console.log(e.target.country.value);
     // console.log(e.target[2].value);
+    // useEffect(() => {
 
+    // }, []);
     //결제 성공 시
     // const fileListRef = collection(db, "order");
     // addDoc(fileListRef, {
@@ -86,22 +92,25 @@ function Order() {
         <select
           onChange={(e) => {
             setSelectedProduct(e.target.value);
+            setPrice(
+              productList.find((el) => el.product === e.target.value)!.price
+            );
           }}
         >
           <option>Gwaja Box</option>
           <option>Gwaja Box with K-merch</option>
         </select>
-        {productList.map((el) =>
-          el.product === selectedProduct ? <span>{el.price}</span> : <></>
-        )}
+        {price}
       </div>
       <div className="order-input">
         <form id="form" onSubmit={placeOrder} autoComplete="on">
           <h2>Order</h2>
-          <input id="name" placeholder="Full Name" />
+          <input id="sender" placeholder="Full Name" />
           <input type="email" id="email" placeholder="E-mail" />
 
           <h2>Address</h2>
+          <input id="receiver" placeholder="Full Name (Receiver)" />
+
           <select id="country">
             <option>Germany</option>
             {euList.map((el) => (
@@ -116,7 +125,12 @@ function Order() {
 
           <button id="submitNewQuizBtn">Submit</button>
         </form>
+
+        {/* <div id="paypal-button-container"></div> */}
       </div>
+      {submitted && (
+        <CheckOut selectedProduct={selectedProduct} price={price} />
+      )}
       {/* <button onClick={()=>{}}>press</button> */}
     </div>
   );

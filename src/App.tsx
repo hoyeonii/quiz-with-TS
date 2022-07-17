@@ -25,7 +25,10 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="checkout" element={<CheckOut />} />
+          <Route
+            path="checkout"
+            element={<CheckOut selectedProduct="" price={0} />}
+          />
           <Route path="quiz" element={<Quiz />} />
           <Route path="about" element={<About />} />
           <Route path="order" element={<Order />} />
