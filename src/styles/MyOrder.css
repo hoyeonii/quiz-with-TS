@@ -1,0 +1,85 @@
+.myorderP {
+  background-color: var(--main-pink-light);
+  padding: 9vh 0 1vh;
+}
+.myorder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid salmon;
+  background-color: white;
+  border-radius: 3rem;
+  box-shadow: 1px 1px 1px 1px var(--main-pink);
+  height: 70vh;
+  width: 60%;
+  margin: 6vh auto;
+  padding: 3% 5%;
+}
+.myorder-tracking {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 3% 0;
+  border-bottom: 2px solid salmon;
+}
+.myorder-tracking img {
+  width: 40%;
+
+  margin: auto;
+}
+
+.myorder-tracking span {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 200%;
+  color: var(--main-pink-dark);
+}
+.myorder-tracking a {
+  /* text-decoration: none; */
+  color: var(--main-pink);
+}
+.myorder-tracking a:hover {
+  /* text-decoration: none; */
+  color: var(--main-pink-dark);
+}
+.myorder-info {
+  display: flex;
+  justify-content: space-between;
+}
+.myorder-info > * {
+  min-width: 40%;
+}
+.myorder-info > * h5 {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+.myorder-info > * p {
+  font-size: 1rem;
+}
+
+.myorder-input {
+  height: 40vh;
+  width: 40%;
+  margin: 20vh auto;
+  justify-content: center;
+  text-align: center;
+}
+.myorder-input h3 {
+  /* font-size: 3rem; */
+  padding: 5% 0;
+  color: var(--main-pink-dark);
+}
+.myorder-input input,
+.myorder-input button {
+  border: 1px solid var(--main-pink-dark);
+  border-radius: 5px;
+  padding: 3%;
+  margin: 2%;
+}
+.myorder-input button {
+  cursor: pointer;
+}
+.myorder-input button:hover {
+  background-color: var(--main-pink-light);
+}

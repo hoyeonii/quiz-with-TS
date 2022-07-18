@@ -20,12 +20,18 @@ import { storage, db } from "../firebase";
 import "../styles/Order.css";
 import order1 from "../images/order1.png";
 import "../types/index.d.ts";
+import { Link } from "react-router-dom";
 import CheckOut from "./CheckOut";
 
 function Order() {
   const [euList, setEuList] = useState<listType[]>([]);
+  const [addressInfo, setAddressInfo] = useState<AddressInfoT>({
+    receiver: "",
+    country: "DE",
+  });
   const [selectedProduct, setSelectedProduct] = useState<string>("Gwaja Box");
   const [price, setPrice] = useState<number>(29.5);
+  const [sender, setSender] = useState<string>("");
   const [scriptLoaded, setScriptLoaded] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
 
@@ -33,6 +39,8 @@ function Order() {
     flag: string;
     name: string;
   };
+
+  type AddressInfoT = { receiver: string; country: string };
 
   const productList = [
     { product: "Gwaja Box", price: 29.5 },
@@ -52,8 +60,11 @@ function Order() {
 
   const placeOrder = (e: any) => {
     e.preventDefault();
+
+    setSender(e.target.sender.value);
     setSubmitted(true);
     console.log(e.target.country.value);
+
     // console.log(e.target[2].value);
     // useEffect(() => {
 
@@ -103,7 +114,18 @@ function Order() {
         {price}
       </div>
       <div className="order-input">
-        <form id="form" onSubmit={placeOrder} autoComplete="on">
+        <form
+          id="form"
+          onSubmit={placeOrder}
+          onChange={(e: any) => {
+            // const [name, value] = e.target;
+            let name = e.target.id;
+            let value = e.target.value;
+            setAddressInfo({ ...addressInfo, [name]: value });
+            console.log(name, value);
+          }}
+          autoComplete="on"
+        >
           <h2>Order</h2>
           <input id="sender" placeholder="Full Name" />
           <input type="email" id="email" placeholder="E-mail" />
@@ -122,15 +144,36 @@ function Order() {
           <input id="postalCode" placeholder="Postal Code" />
           <input id="city" placeholder="City" />
           <input id="county" placeholder="County" />
-
-          <button id="submitNewQuizBtn">Submit</button>
+          <Link
+            to="/checkOut"
+            state={{ ...addressInfo, price, selectedProduct }}
+          >
+            <button id="submitNewQuizBtn">Submit</button>
+          </Link>
         </form>
-
+        <button
+          onClick={() => {
+            console.log(addressInfo);
+          }}
+        >
+          click me
+        </button>
         {/* <div id="paypal-button-container"></div> */}
       </div>
+      {/* <CheckOut
+        selectedProduct={selectedProduct}
+        price={price}
+        sender={sender}
+        addressInfo={addressInfo}
+      />
       {submitted && (
-        <CheckOut selectedProduct={selectedProduct} price={price} />
-      )}
+        <CheckOut
+          selectedProduct={selectedProduct}
+          price={price}
+          sender={sender}
+          addressInfo={addressInfo}
+        />
+      )} */}
       {/* <button onClick={()=>{}}>press</button> */}
     </div>
   );

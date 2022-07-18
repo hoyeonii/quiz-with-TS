@@ -27,7 +27,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="checkout"
-            element={<CheckOut selectedProduct="" price={0} />}
+            element={
+              <CheckOut
+              // selectedProduct=""
+              // price={0}
+              // sender=""
+              // addressInfo={{ receiver: "", country: "" }}
+              />
+            }
           />
           <Route path="quiz" element={<Quiz />} />
           <Route path="about" element={<About />} />
