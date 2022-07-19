@@ -20,21 +20,18 @@ import { storage, db } from "../firebase";
 import "../styles/Order.css";
 import order1 from "../images/order1.png";
 import "../types/index.d.ts";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CheckOut from "./CheckOut";
 
 function Order() {
   const [euList, setEuList] = useState<listType[]>([]);
   const [addressInfo, setAddressInfo] = useState<AddressInfoT>({
     receiver: "",
-    country: "DE",
+    country: "Germany",
   });
   const [selectedProduct, setSelectedProduct] = useState<string>("Gwaja Box");
   const [price, setPrice] = useState<number>(29.5);
-  const [sender, setSender] = useState<string>("");
-  const [scriptLoaded, setScriptLoaded] = useState<boolean>(false);
-  const [submitted, setSubmitted] = useState<boolean>(false);
-
+  const navigate = useNavigate();
   type listType = {
     flag: string;
     name: string;
@@ -60,58 +57,39 @@ function Order() {
 
   const placeOrder = (e: any) => {
     e.preventDefault();
-
-    setSender(e.target.sender.value);
-    setSubmitted(true);
-    console.log(e.target.country.value);
-
-    // console.log(e.target[2].value);
-    // useEffect(() => {
-
-    // }, []);
-    //결제 성공 시
-    // const fileListRef = collection(db, "order");
-    // addDoc(fileListRef, {
-    //   //paypal 결제 후 결제내용도 포함하기
-    //   nameOntheBox: null,
-    //   price: 0,
-    //   addOn: "",
-    //   tracking: null,
-    //   createDate: new Date(),
-
-    //   fullName: null,
-    //   country: "",
-    //   additional: null,
-    //   street: null,
-    //   aptNum: null,
-    //   postalCode: null,
-    //   city: null,
-    //   county: null,
-    // })
-    //   .then((docRef) => {
-    //     console.log("document ID: " + docRef.id); //요걸로 이메일 보내기, my order에서 조회 가능
-    //     alert("order successful");
-    //   })
-    //   .catch((err) => {
-    //     alert("Error : " + err);
-    //   });
+    navigate("/checkOut", {
+      state: { ...addressInfo, price, selectedProduct },
+    });
   };
   return (
     <div className="order page">
       <div className="order-product">
         <img src={order1} />
-        <select
-          onChange={(e) => {
-            setSelectedProduct(e.target.value);
-            setPrice(
-              productList.find((el) => el.product === e.target.value)!.price
-            );
-          }}
-        >
-          <option>Gwaja Box</option>
-          <option>Gwaja Box with K-merch</option>
-        </select>
-        {price}
+        <div className="order-product-right">
+          <select
+            onChange={(e) => {
+              setSelectedProduct(e.target.value);
+              setPrice(
+                productList.find((el) => el.product === e.target.value)!.price
+              );
+            }}
+          >
+            <option>Gwaja Box</option>
+            <option>Gwaja Box with K-merch</option>
+          </select>
+          <ul>
+            <li>15+ Korean Snacks</li>
+            <li>Free tracked shipping</li>
+            <li>Size of the box: 35*25*10(cm)</li>
+            {selectedProduct === "Gwaja Box with K-merch" && (
+              <li>
+                10+ K-pop & Korean Merch <br />
+                (ex. PostCard, Sticker, Face Mask)
+              </li>
+            )}
+          </ul>
+          <span>€{price}</span>
+        </div>
       </div>
       <div className="order-input">
         <form
@@ -127,54 +105,37 @@ function Order() {
           autoComplete="on"
         >
           <h2>Order</h2>
-          <input id="sender" placeholder="Full Name" />
-          <input type="email" id="email" placeholder="E-mail" />
-
+          <input id="sender" placeholder="Full Name" required />
+          <input type="email" id="email" placeholder="E-mail" required />
           <h2>Address</h2>
-          <input id="receiver" placeholder="Full Name (Receiver)" />
+          <div className="order-input-row">
+            <input id="receiver" placeholder="Full Name (Receiver)" required />
 
-          <select id="country">
-            <option>Germany</option>
-            {euList.map((el) => (
-              <option>{el.name}</option>
-            ))}
-          </select>
-          <input id="street" placeholder="Street" />
-          <input id="aptNum" placeholder="Apt no." />
-          <input id="postalCode" placeholder="Postal Code" />
-          <input id="city" placeholder="City" />
-          <input id="county" placeholder="County" />
-          <Link
+            <select id="country">
+              <option>Germany</option>
+              {euList.map((el) => (
+                <option>{el.name}</option>
+              ))}
+            </select>
+          </div>
+          <div className="order-input-row">
+            <input id="street" placeholder="Street" required />
+            <input id="aptNum" placeholder="Apt no." required />
+          </div>
+          <div className="order-input-row">
+            <input id="city" placeholder="City" required />
+            <input id="county" placeholder="County*" />
+            <input id="postalCode" placeholder="Postal Code" required />
+          </div>
+
+          {/* <Link
             to="/checkOut"
             state={{ ...addressInfo, price, selectedProduct }}
-          >
-            <button id="submitNewQuizBtn">Submit</button>
-          </Link>
+          > */}
+          <button id="subminBtn">Submit</button>
+          {/* </Link> */}
         </form>
-        <button
-          onClick={() => {
-            console.log(addressInfo);
-          }}
-        >
-          click me
-        </button>
-        {/* <div id="paypal-button-container"></div> */}
       </div>
-      {/* <CheckOut
-        selectedProduct={selectedProduct}
-        price={price}
-        sender={sender}
-        addressInfo={addressInfo}
-      />
-      {submitted && (
-        <CheckOut
-          selectedProduct={selectedProduct}
-          price={price}
-          sender={sender}
-          addressInfo={addressInfo}
-        />
-      )} */}
-      {/* <button onClick={()=>{}}>press</button> */}
     </div>
   );
 }

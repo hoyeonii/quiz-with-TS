@@ -44,10 +44,11 @@
 }
 .myorder-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .myorder-info > * {
   min-width: 40%;
+  padding: 0 3%;
 }
 .myorder-info > * h5 {
   font-size: 1rem;
@@ -82,4 +83,14 @@
 }
 .myorder-input button:hover {
   background-color: var(--main-pink-light);
+}
+@media screen and (max-width: 1023px) {
+  .myorder {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .myorder {
+    width: 80%;
+  }
 }

@@ -16,6 +16,7 @@ import Contact from "./pages/Contact";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Shipping from "./pages/Shipping";
+import OrderResult from "./pages/OrderResult";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="order" element={<Order />} />
           <Route path="myorder" element={<MyOrder />} />
+          <Route path="orderR" element={<OrderResult />} />
           {/* footer */}
           <Route path="faq" element={<FAQ />} />
           <Route path="terms" element={<Terms />} />

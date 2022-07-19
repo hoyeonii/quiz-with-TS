@@ -47,7 +47,7 @@ function MyOrder() {
     county: string;
   }
   const checkId = async () => {
-    var docRef = doc(db, "order", id);
+    const docRef = doc(db, "order", id);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {

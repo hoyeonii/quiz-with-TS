@@ -1,33 +1,135 @@
 /*  */
-.order-product {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+
+.order {
+  background-color: var(--main-pink-light);
+  width: 60%;
+  margin: auto;
+  /* border: 2px solid blue; */
 }
-.order-product > * {
-  width: 30%;
-  margin: 1% auto;
+.order > * {
+  background-color: white;
+  display: flex;
+
+  padding: 0 5%;
+  box-shadow: 1px 1px 1px 1px var(--main-pink);
+}
+.order-product {
+  justify-content: space-around;
+  border-radius: 3rem 3rem 0 0;
+  /* text-align: center; */
+  margin-top: 5%;
+  padding-top: 5%;
+}
+.order-product-right {
+  padding: 0 3%;
+  width: 40%;
+}
+.order-product-right ul {
+  padding-left: 10%;
+}
+.order-product-right select {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: var(--main-pink-light);
+  border: none;
+}
+.order-product-right h3 {
+  font-size: 2rem;
+}
+.order-product-right span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  float: right;
 }
 .order-product img {
   width: 40%;
 }
 
-.order-input {
-  display: flex;
+.order-input,
+.paypal {
   flex-direction: column;
-  border: 1px solid salmon;
+  /* border: 1px solid salmon; */
+  border-radius: 0 0 3rem 3rem;
+  margin-bottom: 5%;
+  padding-bottom: 5%;
 }
 
 .order form {
   display: flex;
   flex-direction: column;
 }
+.order-input-row {
+  display: flex;
+  justify-content: space-between;
+}
+.order input,
+.order select,
+#subminBtn {
+  padding: 2%;
+  margin: 1% 0;
+  border-radius: 10px;
+  border: 2px solid var(--main-gray);
+}
+.order select {
+  margin: 1% 0;
+}
+.order-input #receiver,
+.order-input #country {
+  width: 49%;
+}
 
+.order-input #street {
+  width: 70%;
+}
+.order-input #aptNum {
+  width: 28%;
+}
+.order-input #city,
+.order-input #county,
+.order-input #postalCode {
+  width: 32%;
+}
 .order .paypal {
   /* height: 100px; */
 }
-
-.paypal #shipToBillingAddress {
+#subminBtn {
+  width: 100%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: 2px solid var(--main-pink);
+  border-radius: 50px;
+  background-color: var(--main-pink-dark);
+  color: white;
+}
+#subminBtn:hover {
+  background-color: var(--main-pink-light);
+  color: var(--main-pink-dark);
+}
+/* .paypal #shipToBillingAddress {
   display: none;
   border: 1px solid rebeccapurple;
+} */
+
+@media screen and (max-width: 1023px) {
+  .order {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .order {
+    width: 95%;
+  }
+  .order-product {
+    /* display: flex; */
+    flex-direction: column;
+  }
+  .order-product img {
+    width: 60%;
+    margin: auto;
+  }
+  .order-product-right {
+    width: 100%;
+  }
 }

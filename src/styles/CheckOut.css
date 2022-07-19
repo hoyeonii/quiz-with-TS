@@ -1,0 +1,40 @@
+.checkOut {
+  z-index: -1;
+}
+.checkOut .order-product {
+  padding-bottom: 3%;
+}
+.paypal > div:last-child {
+  display: none !important;
+}
+
+.checkOut {
+  background-color: var(--main-pink-light);
+  width: 60%;
+  margin: auto;
+  /* border: 2px solid blue; */
+}
+.checkOut > * {
+  background-color: white;
+  display: flex;
+
+  padding: 0 5%;
+  box-shadow: 1px 1px 1px 1px var(--main-pink);
+}
+.paypal {
+  padding-top: 3%;
+}
+.paypal > * {
+  /* text-align: center; */
+  margin: auto;
+}
+@media screen and (max-width: 1023px) {
+}
+@media screen and (max-width: 768px) {
+  .checkOut {
+    width: 95%;
+  }
+  .myorder-info {
+    flex-direction: column;
+  }
+}

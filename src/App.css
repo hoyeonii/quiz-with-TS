@@ -7,6 +7,9 @@
   --main-purple: #8f63c7ce;
   --main-ivory: #fff7efce;
 }
+#root {
+  background-color: var(--main-pink-light);
+}
 
 h3 {
   font-size: 3.5rem;
@@ -51,4 +54,18 @@ p {
   padding: 0 3%;
   font-size: 1rem;
   margin-bottom: 5%;
+}
+@media screen and (max-width: 1023px) {
+  .content h4 {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  p {
+    font-size: 1rem;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+  }
 }

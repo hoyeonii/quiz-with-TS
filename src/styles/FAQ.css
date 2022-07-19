@@ -32,3 +32,14 @@
   line-height: 130%;
   margin: 0 0 2% 0;
 }
+@media screen and (max-width: 1023px) {
+}
+@media screen and (max-width: 768px) {
+  .Collapsible {
+    border: 2px solid var(--main-pink);
+    box-shadow: 1px 1px 1px 1px var(--main-pink);
+  }
+  .Collapsible span {
+    font-size: 1.2rem;
+  }
+}

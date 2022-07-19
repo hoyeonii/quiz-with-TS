@@ -186,7 +186,7 @@ function Home() {
           </div>
           <img src={feature1} alt="feature" />
         </div>
-        <div className="feature">
+        <div className="feature feature-reverse">
           <img src={feature2} alt="feature" />
 
           <div className="feature-text">
